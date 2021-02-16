@@ -44,7 +44,7 @@ Ticket.prototype.determineCost = function() {
   return this.cost 
 }
 
-let ticket = new Ticket("Batman", 3);
+let ticket = new Ticket("Batman", 13);
 
 // 1) User = age
 // 2) Ticket = movie, time, cost

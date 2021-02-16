@@ -26,8 +26,15 @@ Expect(user.determineAgeGroup(35).toEqual("adult"));
 Test 3: "It will take a user's age and determine the age group by calling the determineAgeGroup prototype function."
 Expect(user.determineAgeGroup(80).toEqual("senior"));
 
-Test 4: "It will determine that the movie is a morning film by creating an object for Ticket with a time of 3am."
+Test 4: "It will determine that the movie is a morning film by creating an object for Ticket with a time of 3:00."
 Expect(ticket.determineTime().toEqual("morning"));
+
+Test 5: "It will determine that the movie is a morning film by creating an object for Ticket with a time of 13:00."
+Expect(ticket.determineTime().toEqual("matinee"));
+
+Test 6: "It will determine that the movie is a morning film by creating an object for Ticket with a time of 19:00."
+Expect(ticket.determineTime().toEqual("evening"));
+
 ## Setup/Installation Requirements
 
 * Clone repository: https://github.com/marnionrails/movie-tickets
