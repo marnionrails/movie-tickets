@@ -24,27 +24,50 @@ function Ticket(movie, time) {
   this.time = time;
   this.cost = 0;
 }
-
-Ticket.prototype.determineTime = function(time){
+ Ticket.prototype.determineTime = function(){
   if (this.time <= 12) {
-    return "morning";
+    this.time = "morning";
   } else if (this.time <= 17) {
-    return "matinee";
+    this.time = "matinee";
   }
   else {
-    return "evening";
+    this.time = "evening";
   }
-}
+} 
+
+//Line 47: need to make that function work with any object. determineTime() needs to be called before 46 to update time.
 
 Ticket.prototype.determineCost = function() {
-  const morning = 8
-  const afternoon = 10
-  const evening = 12 
-  
+  const morning = 8;
+  const matinee = 10;
+  const evening = 12;
+  const senior = .25;
+  const child = .5;
+  const officialTime = this.time;
+  const ageGroup = user.determineAgeGroup();
+  if(officialTime === "morning" && ageGroup === "senior") {
+      this.cost = morning * senior;
+  } else if (officialTime === "matinee" && ageGroup === "senior") {
+      this.cost = matinee * senior;
+  } else if (officialTime === "evening" && ageGroup === "senior") {
+      this.cost = evening * senior;
+  } else if(officialTime === "morning" && ageGroup === "child") {
+      this.cost = morning * child;
+  } else if(officialTime === "matinee" && ageGroup === "child") {
+      this.cost = matinee * child;
+  }  else if(officialTime === "evening" && ageGroup === "child") {
+      this.cost = evening * child;
+  } else if(officalTime === "morning" && ageGroup === "adult") {
+      this.cost = morning;
+  } else if(officialTime === "matinee" && ageGroup === "adult") {
+      this.cost = matinee;
+  } else {
+      this.cost = evening;
+  } 
   return this.cost 
 }
 
-let ticket = new Ticket("Batman", 19);
+let ticket = new Ticket("Batman", 3);
 
 // 1) User = age
 // 2) Ticket = movie, time, cost
